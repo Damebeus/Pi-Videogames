@@ -1,0 +1,17 @@
+body {
+ /*  background-image: url("https://pm1.narvii.com/7267/04ff8e5a3d2aa1a5ba179a710b1c3d5e7bd37e96r1-315-450v2_hq.jpg"); */
+ background-image: radial-gradient( circle farthest-corner at 2.5% 5.5%,  rgba(10,36,99,1) 0%, rgba(228,60,82,1) 90% );
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
