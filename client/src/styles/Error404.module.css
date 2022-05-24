@@ -1,0 +1,84 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 6rem;
+    flex-direction: column;
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.pagina{
+position: absolute;
+top: 11vh;
+left: 19vw;
+}
+.encontrada{
+    position: absolute;
+    top: 11vh;
+    right: 17vw;
+}
+.boton{
+    position: absolute;
+    top: 80vh;
+    left: 39vw;
+    width: -10px;
+    height: 0px;
+    cursor: pointer;
+    
+}
+
+.input {
+    display: none;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    perspective: 900px;
+}
+.card1 ,.card2, .card3 {
+    width: 405px;
+    height: 592px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    border-radius: 15px;
+    background-image: url("../img/cardback.png");
+}
+.item {
+    border-radius: 0.4rem;
+    overflow: hidden;
+    cursor: pointer;
+    width: 30%;
+    transition: .5s all ease;
+    transform: rotateX(45deg) scale(0.7);
+
+}
+.item:hover {
+    cursor: pointer;
+    transform: rotate(0deg) scale(1);
+    transition: .5s all ease;
+    z-index: 400;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.16);
+}
+.item.card1:hover {
+    transform: rotateY(180deg) scaleX(-1);
+    background-image: url("../img/cuatro.png");
+}
+.item.card2:hover {
+    transform: rotateY(180deg) scaleX(-1);
+    background-image: url("../img/cero.png");
+}
+.item.card3:hover {
+    transform: rotateY(180deg) scaleX(-1);
+    background-image: url("../img/cuatrofinal.png");
+}
+.label {
+    display: block;
+    width: 405px;
+    height: 500px;
+} 

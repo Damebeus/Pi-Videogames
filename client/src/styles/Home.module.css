@@ -1,0 +1,121 @@
+*{
+  text-decoration: none;
+  
+  
+  
+}
+.container{
+  width: 100%;
+	height: 10vh;
+	background-color: #79a8e241;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	border-bottom-width: 10px;
+ 
+}
+
+
+.back{
+  background-image: url("https://p4.wallpaperbetter.com/wallpaper/345/47/627/assassin-s-creed-assassin-s-creed-origins-hieroglyphs-wallpaper-preview.jpg");
+ box-shadow: inset 0px -6px 15px 10px black; 
+ background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
+}
+.cardContainer{
+  display: grid;
+ 
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    padding: 30px 10px 10px 300px;
+    grid-gap: 30px 30px 30px;
+    justify-content: center;
+    
+    
+  }
+  .titulo{
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      font-size: 7vh;
+      position: relative;
+  }
+  .create{
+    position: absolute;
+    text-decoration: none;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    left: 100px;
+    
+  }
+  
+  .barra{
+    position: absolute;
+    display: flex;
+    font-size: 250px;
+    text-decoration: none;
+    height: 35px;
+    flex-direction: row-reverse;
+    left: 36vw;
+    margin-bottom: 20px;
+    
+    
+  }
+  
+.SearchBar{
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  text-decoration: none;
+  position: absolute;
+  color: white;
+  height:50px;
+  right: 20px;
+ 
+}
+
+  .buttonSelect{
+    color: rgb(0, 0, 0);
+    background: #fbff1aa9;
+   
+    font-size: 15px;
+    height: 100%;
+    border: 0ex;
+    border-radius: 10px 10px 10px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.472);
+  }
+  .fondito{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .gifito{
+    position: absolute;
+    width: 900px;
+    height: 450px;
+    bottom: 23vh;
+    right: 510px;
+
+  }
+  .momia{
+	position: absolute;
+	width: 350px;
+	height: 250px;
+	bottom:38vh;
+	left: 12vh;	
+  }
+  .momia2{
+	position: absolute;
+	width: 350px;
+	height: 250px;
+	bottom: 38vh;
+	right: 12vh;	
+  }

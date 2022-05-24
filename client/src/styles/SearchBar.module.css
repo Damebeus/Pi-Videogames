@@ -1,0 +1,46 @@
+.searchbar {
+	width: 300px;
+	vertical-align: middle;
+	white-space: nowrap;
+	position: absolute;
+    right:5.5vw
+
+}
+
+.searchbar input {
+	font-family: 'Bebas Neue', cursive;
+	font-family: 'Oswald', sans-serif;
+	font-family: 'Rajdhani', sans-serif;
+	font-size: 20px;
+	color: rgb(0, 0, 0);
+	height: 24px;
+	
+	border-color: #79a9e2;
+	border-radius: 10px 0px 0px 10px;
+	box-shadow: 0 10px 50px rgba(7, 17, 19, 0.616);
+}
+
+.searchbar form button {
+	color: white;
+	font-family: 'Bebas Neue', cursive;
+	font-family: 'Oswald', sans-serif;
+	font-family: 'Rajdhani', sans-serif;
+	font-size: 20px;
+	height: 30px;
+	border: 0px;
+	border-radius: 0px 10px 10px 0px;
+	background-color: #fbff1aa9;
+	box-shadow: 0 10px 50px rgba(7, 17, 19, 0.616);
+	text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.472);
+}
+
+.searchbar input:hover {
+	cursor: pointer;
+	border-color: #fbff1aa9;
+}
+
+.searchbar form button:hover {
+	cursor: pointer;
+	color: #fbff1aa9;
+	transition: 150ms;
+}

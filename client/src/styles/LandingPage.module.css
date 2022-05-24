@@ -1,0 +1,49 @@
+
+.background{
+background-image: url("../img/ascOrigin.png");
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+}
+.videin{	
+	right: 0px;
+	max-height: 100vh;
+	position: absolute;
+
+
+	
+}
+.titulo{
+	position: absolute;
+	top: 100px;
+	left: 300px;
+	width: 43vw;
+	
+
+}
+
+.logo{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 50px;
+	height: 50px;
+
+
+}
+.boton{
+	position: absolute;
+	top: 65vh;
+	left: 550px;
+	width: 15vw;
+	cursor: pointer;
+	box-shadow: rgb(93, 93, 93) 0px 0px 0px 5px, rgb(92, 92, 92) 0px 10px 27px -8px inset, rgb(190, 29, 43) 0px -10px 27px -8px inset, 5px 5px 17px 5px rgba(0,0,0,0.09);
+	
+
+}
+
+.boton:hover{
+	transform: scale(1.1);
+}

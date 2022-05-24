@@ -1,0 +1,194 @@
+
+.todo{
+    background-image: url("https://images.hdqwalls.com/wallpapers/assassins-creed-origins-2017-wx.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+    color: #fbfff8;
+    text-shadow: 0 0 15px #000, 0 0 10px #000, 
+    0 0 8px #000, 0 0 10px #000, 0 0 20px #000,
+     0 0 15px #000, 0 0 7px #000, 0 0 10px #000;
+    display: grid;
+
+    text-align: center;
+}
+
+.boton{
+    position: absolute;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 20px ;
+}
+.paginadito{
+    margin-left: 47vw;
+    margin-top: 15vh;
+    display: flex;
+    align-items: center;
+    width: 40vw;
+    justify-content: space-around;
+    flex-direction: column;
+    background-image: url("https://i.pinimg.com/originals/88/37/a6/8837a69bcf30bd8a428f9b6bb9d22e48.jpg");
+    height: 75vh;
+    margin-top: 120px;
+    border-radius: 30px;
+    box-shadow: 10px 9px 24px 9px #000000;
+
+    
+}
+.titulo{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    margin-left: 56.5vw;
+    margin-top: 20px;
+    position: absolute;
+}
+.formulario{
+   
+    flex-direction:column;
+   font-size: 25px;
+   margin-top: 20px;
+   position: absolute;
+   
+   
+}
+.formulario label{
+    display: flex;
+    justify-content: center;
+}
+.mas{
+  position: absolute;
+  margin-top: 10px;
+  margin-left: -40px;
+  font-weight: 300px;
+  font-size: 32px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 1px;
+  border: none;
+}
+.buttonContainer1 button {
+	position: absolute;
+	margin-top: 15px;
+	margin-left: -45px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300px;
+	font-size: 30px;
+	letter-spacing: 1px;
+	background: #000;
+	-webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+	mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+	-webkit-mask-size: 2300% 100%;
+	mask-size: 2300% 100%;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	-webkit-animation: ani2 0.7s steps(22) forwards;
+	animation: ani2 0.7s steps(22) forwards;
+	border-radius: 5px;
+  }
+  .buttonContainer1 button:hover {
+	-webkit-animation: ani 0.7s steps(22) forwards;
+	animation: ani 0.7s steps(22) forwards;
+	
+  }
+  @keyframes ani {
+	from {
+	  -webkit-mask-position: 0 0;
+	  mask-position: 0 0;
+	}
+	to {
+	  -webkit-mask-position: 100% 0;
+	  mask-position: 100% 0;
+	}
+  }
+  @-webkit-keyframes ani {
+	from {
+	  -webkit-mask-position: 0 0;
+	  mask-position: 0 0;
+	}
+	to {
+	  -webkit-mask-position: 100% 0;
+	  mask-position: 100% 0;
+	}
+  }
+  @-webkit-keyframes ani2 {
+	from {
+	  -webkit-mask-position: 100% 0;
+	  mask-position: 100% 0;
+	}
+	to {
+	  -webkit-mask-position: 0 0;
+	  mask-position: 0 0;
+	}
+  }
+  @keyframes ani2 {
+	from {
+	  -webkit-mask-position: 100% 0;
+	  mask-position: 100% 0;
+	}
+	to {
+	  -webkit-mask-position: 0 0;
+	  mask-position: 0 0;
+	}
+  }
+
+  .mas1{
+    position: absolute;
+    margin-top: 12px;
+    margin-left: 43vw;
+    font-weight: 300px;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    border: none;
+  }
+  .buttonContainer2 button {
+      position: absolute;
+      margin-top: 17.5px;
+      margin-left: 42.7vw;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300px;
+      font-size: 30px;
+      letter-spacing: 1px;
+      background: #000;
+      -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+      mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+      -webkit-mask-size: 2300% 100%;
+      mask-size: 2300% 100%;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      -webkit-animation: ani2 0.7s steps(22) forwards;
+      animation: ani2 0.7s steps(22) forwards;
+      border-radius: 5px;
+    }
+    .buttonContainer2 button:hover {
+      -webkit-animation: ani 0.7s steps(22) forwards;
+      animation: ani 0.7s steps(22) forwards;
+      
+    }
+
+ 
+
+    .plataformas{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+    margin-top: 25px;
+    }
+
+
+ .plataformas input{
+    height: 20px;
+    width: 100px;
+    margin-top: 10px;
+  }
+
+  .containerGenres, .containerPlatforms {
+    display: flex;
+    
+  }

@@ -36,8 +36,8 @@ function rootReducer(state = initialState, action) {
     case "GET_VIDEOGAMES":
       return {
         ...state,
-        videogames: action.payload,
-        allGames: action.payload,
+        videogames: action.payload ? action.payload : { error: "No data" },
+        allGames: action.payload ? action.payload : { error: "No data" },
       };
     case "GET_NAME_VIDEOGAMES":
       return {
@@ -58,24 +58,23 @@ function rootReducer(state = initialState, action) {
     case "FILTER_CREATED":
       state.videogames = state.allGames;
       let createGames = state.videogames;
+      createGames.forEach((elm) => console.log(elm));
 
       if (action.payload === "null") {
         createGames = state.videogames;
       }
       if (action.payload === "new-games") {
         createGames = state.videogames.filter(
-          (elm) => elm.createdInDb === true
+          (elm) => elm.createdInDb === "true"
         );
       }
       if (action.payload === "old-games") {
         createGames = state.videogames.filter((elm) => !elm.createdInDb);
       }
-      console.log(createGames, "abuela");
       return {
         ...state,
         videogames: createGames,
       };
-
     case "POST_VIDEOGAMES":
       return {
         ...state,

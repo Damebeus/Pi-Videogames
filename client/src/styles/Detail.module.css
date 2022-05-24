@@ -1,0 +1,172 @@
+.container {
+	display: grid;
+	place-items: center;
+	font-family: 'Bebas Neue', cursive;
+	font-family: 'Oswald', sans-serif;
+	font-family: 'Rajdhani', sans-serif;
+	text-align: center;
+	background-image: url("https://free4kwallpapers.com/uploads/originals/2017/10/19/assassins-creed-origins-egypt-4k-wallpaper.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	
+
+}
+.detail{
+	display: grid;
+	place-items: center;
+	margin-top: 20px;
+	background-image: url("https://i.pinimg.com/originals/88/37/a6/8837a69bcf30bd8a428f9b6bb9d22e48.jpg");
+	max-height: 100vh;
+	width: 1000px;
+	align-items: center;
+	border-radius: 10px 10px 10px 10px;
+	margin-bottom: 20px;
+	box-shadow: 0 10px 50px rgba(7, 17, 19, 0.616);
+	height: 90vh;
+	
+}
+.container h3 {
+	color: #000;
+	font-family: 'Bebas Neue', cursive;
+	font-family: 'Oswald', sans-serif;
+	font-family: 'Rajdhani', sans-serif;
+	font-size: 30px;
+}
+.description {
+	color: #000;
+	font-family: 'Bebas Neue', cursive;
+	font-family: 'Oswald', sans-serif;
+	font-family: 'Rajdhani', sans-serif;
+	font-size: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	overflow-y: scroll;
+	max-height: 200px;
+}
+
+
+.container p {
+	color: #000;
+	font-family: 'Bebas Neue', cursive;
+	font-family: 'Oswald', sans-serif;
+	font-family: 'Rajdhani', sans-serif;
+	font-size: 20px;
+}
+.rating{
+
+background-color: #4f3e1a;
+}
+.img {
+	margin-top: 10px;
+	border-radius: 2ex 2ex 2ex 2ex;
+	box-shadow: 20px 20px 50px rgba(7, 17, 19, 0.616);
+	border: solid 1px #000;
+}
+.mas{
+	position: absolute;
+	margin-top: 12px;
+	margin-left: 36vh;
+	font-weight: 300px;
+	font-size: 30px;
+	color: #000;
+	letter-spacing: 1px;
+	border: none;
+}
+
+.buttonContainer1 button {
+	position: absolute;
+	margin-top: 12px;
+	margin-left: 35vh;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300px;
+	font-size: 30px;
+	letter-spacing: 1px;
+	background: #000;
+	-webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+	mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+	-webkit-mask-size: 2300% 100%;
+	mask-size: 2300% 100%;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	-webkit-animation: ani2 0.7s steps(22) forwards;
+	animation: ani2 0.7s steps(22) forwards;
+	border-radius: 5px;
+  }
+  .buttonContainer1 button:hover {
+	-webkit-animation: ani 0.7s steps(22) forwards;
+	animation: ani 0.7s steps(22) forwards;
+	
+  }
+  @keyframes ani {
+	from {
+	  -webkit-mask-position: 0 0;
+	  mask-position: 0 0;
+	}
+	to {
+	  -webkit-mask-position: 100% 0;
+	  mask-position: 100% 0;
+	}
+  }
+  @-webkit-keyframes ani {
+	from {
+	  -webkit-mask-position: 0 0;
+	  mask-position: 0 0;
+	}
+	to {
+	  -webkit-mask-position: 100% 0;
+	  mask-position: 100% 0;
+	}
+  }
+  @-webkit-keyframes ani2 {
+	from {
+	  -webkit-mask-position: 100% 0;
+	  mask-position: 100% 0;
+	}
+	to {
+	  -webkit-mask-position: 0 0;
+	  mask-position: 0 0;
+	}
+  }
+  @keyframes ani2 {
+	from {
+	  -webkit-mask-position: 100% 0;
+	  mask-position: 100% 0;
+	}
+	to {
+	  -webkit-mask-position: 0 0;
+	  mask-position: 0 0;
+	}
+  }
+
+  .fondito{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .gifito{
+    position: absolute;
+    width: 900px;
+    height: 450px;
+    bottom: 23vh;
+	right: 510px;
+
+  }
+  .momia{
+	position: absolute;
+	width: 350px;
+	height: 250px;
+	bottom:38vh;
+	left: 12vh;	
+  }
+  .momia2{
+	position: absolute;
+	width: 350px;
+	height: 250px;
+	bottom: 38vh;
+	right: 12vh;	
+  }
