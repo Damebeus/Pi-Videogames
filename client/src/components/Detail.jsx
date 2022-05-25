@@ -18,9 +18,8 @@ export default function Detail(data) {
     dispatch(getGamesById(id));
   }, []);
 
-  return videogame[0] ? (
+  return videogame.name ? (
     <div className={`${style.container}`}>
-      <button onClick={console.log(videogame[0])}>x</button>
       <div className={`${style.detail}`}>
         <Link to='/home'>
           <div className={style.buttonContainer1}>
@@ -33,31 +32,31 @@ export default function Detail(data) {
         <div>
           <img
             className={style.img}
-            src={videogame.img}
+            src={videogame?.image}
             width='500px'
             height='350px'
             alt={"game"}
           />
         </div>
         <div className={style.detailInfo}>
-          <h3>{videogame[0].name}</h3>
-          <p>Released: {videogame[0].released}</p>
-          <p>
-            Platform:{" "}
-            {videogame[0].platform.map((e) => (
-              <p>{e}</p>
+          <h3>{videogame?.name}</h3>
+          <p>Released: {videogame?.released}</p>
+          <div className={style.platform}>
+            Platform:
+            {videogame?.platform?.map((e) => (
+              <p className={style.platformItem}>{e}</p>
             ))}
-          </p>
-          <p>
+          </div>
+          <div>
             Genre:{" "}
-            {videogame[0].Genres.map((e) => (
+            {videogame?.genre?.map((e) => (
               <p>{e}</p>
             ))}
-          </p>
+          </div>
           <p className={style.description}>
-            Description: {videogame[0].description}
+            Description: {videogame?.description}
           </p>
-          <p className={style.rating}>Rating: {videogame[0].rating}</p>
+          <p className={style.rating}>Rating: {videogame?.rating}</p>
         </div>
       </div>
     </div>

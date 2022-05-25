@@ -22,6 +22,7 @@ export default function Home() {
   const genres = useSelector((state) => state.genres);
   const dispatch = useDispatch();
   const allVideogames = useSelector((state) => state.videogames);
+
   const [order, setOrder] = useState("null");
   const [existanceOrder, setExistanceOrder] = useState("null");
   const [currentPage, setCurrentPage] = useState(1);
@@ -61,7 +62,7 @@ export default function Home() {
     setCurrentPage(1);
     setOrder(`Ordenado ${ev.target.value}`);
   }
-  return (
+  return allVideogames.length ? (
     <div className={style.back}>
       <div className={style.container}>
         <div className={style.SearchBar}>
@@ -126,7 +127,7 @@ export default function Home() {
       />
 
       <div className={style.cardContainer}>
-        {currentVideogames ? (
+        {currentVideogames &&
           currentVideogames.map((elm) => {
             return (
               <Card
@@ -134,19 +135,18 @@ export default function Home() {
                 id={elm.id}
                 image={elm.image}
                 name={elm.name}
-                genres={elm.genres}
+                genre={elm.genre}
               />
             );
-          })
-        ) : (
-          <div>
-            <img className={style.fondito} src={fondo} alt='' />
-            <img className={style.gifito} src={gif} alt='' />
-            <img className={style.momia} src={momia} alt='' />
-            <img className={style.momia2} src={momia} alt='' />
-          </div>
-        )}
+          })}
       </div>
+    </div>
+  ) : (
+    <div>
+      <img className={style.fondito} src={fondo} alt='' />
+      <img className={style.gifito} src={gif} alt='' />
+      <img className={style.momia} src={momia} alt='' />
+      <img className={style.momia2} src={momia} alt='' />
     </div>
   );
 }

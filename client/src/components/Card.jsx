@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "../styles/Card.module.css";
-export default function Card({ image, name, genres, id, rating }) {
-  console.log(image);
+export default function Card({ image, name, genre, id, rating }) {
   return name ? (
     <div className={style.cards}>
       <Link to={`/videogame/${id}`}>
@@ -14,11 +13,14 @@ export default function Card({ image, name, genres, id, rating }) {
         </div>
         <div className={style.rating}>
           <h3>
+            {" "}
             <div className={style.rating}>{rating}</div>
           </h3>
         </div>
         <div className={style.genres}>
-          <h5>{genres}</h5>
+          {genre?.map((elm) => (
+            <h5>{elm}</h5>
+          ))}
         </div>
       </Link>
     </div>

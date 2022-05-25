@@ -4,6 +4,7 @@ import { postVideogame, getGenres } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import style from "../styles/VideogameCreate.module.css";
+import axios from "axios";
 
 const platforms = [
   { name: "PC" },
@@ -87,7 +88,6 @@ export default function VideogameCreate() {
   const history = useHistory();
   const [errors, setErrors] = useState({});
 
-  console.log(genres);
   const [input, setInput] = useState({
     name: "",
     description: "",
@@ -111,7 +111,6 @@ export default function VideogameCreate() {
     );
   }
   function handleSelect(ev) {
-    console.log(ev.target.name);
     if (platforms.find((p) => p.name === ev.target.value)) {
       if (input.platform.includes(ev.target.value)) {
         alert("la plataforma ya esta seleccionada");
@@ -141,9 +140,12 @@ export default function VideogameCreate() {
   }, [input]);
   function handleSubmit(ev) {
     ev.preventDefault();
-    console.log(input);
+
     if (Object.keys(errors).length === 0) {
-      dispatch(postVideogame(input));
+      /* dispatch(postVideogame(input)); */
+
+      axios.post("http://localhost:3001/videogame", input);
+
       alert("Videojuego creado!");
       setInput({
         name: "",
@@ -160,11 +162,10 @@ export default function VideogameCreate() {
     }
   }
   function handleDelete(elm) {
-    console.log(elm);
     if (platforms.find((p) => p.name === elm)) {
       setInput({
         ...input,
-        platforms: input.platforms.filter((e) => e !== elm),
+        platform: input.platform.filter((e) => e !== elm),
       });
     } else {
       setInput({
@@ -193,7 +194,7 @@ export default function VideogameCreate() {
         <div className={style.paginado}>
           <h1 className={style.titulo}>Crea tu videojuego!</h1>
           <div className={style.paginadito}>
-            <form className={style.formulario}>
+            <form className={style.formulario} onSubmit={handleSubmit}>
               <div>
                 <label>Nombre:</label>
                 <input
@@ -265,13 +266,9 @@ export default function VideogameCreate() {
                 <div>
                   {input.genre &&
                     input.genre.map((elm) => (
-                      <div
-                        className='genre'
-                        onClick={() => handleDelete(elm)}
-                        name={"genres"}
-                      >
-                        <p>{elm}</p>
-                      </div>
+                      <ul onClick={() => handleDelete(elm)} name={"genres"}>
+                        <li className={style.generitos}>{elm}</li>
+                      </ul>
                     ))}
                 </div>
               </div>
@@ -290,12 +287,10 @@ export default function VideogameCreate() {
                 <div>
                   {input.platform &&
                     input.platform.map((elm) => (
-                      <div
-                        className='platform'
-                        onClick={() => handleDelete(elm)}
-                        name='platform'
-                      >
-                        <p>{elm}</p>
+                      <div onClick={() => handleDelete(elm)} name={"platform"}>
+                        <div>
+                          <p className={style.plataformitas}>{elm}</p>
+                        </div>
                       </div>
                     ))}
                 </div>
@@ -303,9 +298,9 @@ export default function VideogameCreate() {
               <div className={style.buttonContainer1}>
                 <span className={style.mas}>Crear</span>
                 <button
-                  onClick={(ev) => handleSubmit(ev)}
+                  /*  onClick={(ev) => handleSubmit(ev)} */
                   id='work'
-                  type='button'
+                  type='submit'
                   name='Hover'
                 >
                   Crear

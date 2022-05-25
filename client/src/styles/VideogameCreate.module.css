@@ -43,22 +43,57 @@
     display: flex;
     justify-content: center;
     font-size: 50px;
-    margin-left: 56.5vw;
-    margin-top: 20px;
+    margin-left: 56vw;
+    margin-top: 5px;
     position: absolute;
 }
 .formulario{
-   
+   display: flex;
     flex-direction:column;
    font-size: 25px;
    margin-top: 20px;
    position: absolute;
+   align-items: center;
+    margin-right: 15vw;
+    border-right: #000000 solid 3px;
    
    
 }
 .formulario label{
     display: flex;
     justify-content: center;
+}
+.generitos{
+    display: flex;
+  position: absolute;
+    font-size: 25px;
+    top: 40px;
+    align-items: center;
+    right: -5vw;
+    
+
+   
+   
+}
+.plataformitas{
+  
+    position: absolute;
+    font-size: 25px;
+    top: -100px;
+    align-items: center;
+    right: -10vw;
+    
+
+   
+   
+}
+.error{
+    color: red;
+    font-size: 30px;
+    left: 390px;
+    position: absolute;
+    margin-top: -70px;
+    
 }
 .mas{
   position: absolute;

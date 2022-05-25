@@ -8,7 +8,7 @@
 	background-image: url("https://free4kwallpapers.com/uploads/originals/2017/10/19/assassins-creed-origins-egypt-4k-wallpaper.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 100vh;
+	max-height: 100vh;
 	
 
 }

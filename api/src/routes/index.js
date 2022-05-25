@@ -3,7 +3,7 @@ const { Router, response } = require("express");
 // Ejemplo: const authRouter = require('./auth.js');
 const axios = require("axios");
 const router = Router();
-const { Videogames, Genres } = require("../db");
+const { Videogame, Genre } = require("../db");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -27,8 +27,8 @@ const getInfoApi = async () => {
       description: elm.description, //
       released: elm.released,
       rating: elm.rating,
-      platform: elm.platforms.map((elm) => elm.platform.name).join(", "),
-      genres: elm.genres.map(({ name }) => name).join(", "),
+      platform: elm.platforms,
+      genre: elm.genres.map((elm) => (elm = elm.name)),
       image: elm.background_image,
     };
   });
@@ -36,20 +36,28 @@ const getInfoApi = async () => {
 };
 
 const getInfoDb = async () => {
-  return await Videogames.findAll({
-    include: {
-      model: Genres,
-      attributes: ["name"],
-      through: {
-        attributes: [],
-      },
-    },
+  return await Videogame.findAll({
+    include: Genre,
   });
 };
 
 const getAllInfo = async () => {
   const infoApi = await getInfoApi();
-  const infoDb = await getInfoDb();
+
+  /*   const infoDb = await getInfoDb(); */
+  let infoDb = await Videogame.findAll({ include: Genre });
+  infoDb = infoDb.map((elm) => {
+    return {
+      id: elm.id,
+      name: elm.name,
+      description: elm.description, //
+      released: elm.released,
+      rating: elm.rating,
+      platform: elm.platforms,
+      genre: elm.Genres.map((elm) => (elm = elm.name)),
+      image: elm.image,
+    };
+  });
   const infototal = infoApi.concat(infoDb);
   return infototal;
 };
@@ -62,7 +70,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/videogames", async (req, res) => {
+router.get("/videogame", async (req, res) => {
   const { name } = req.query;
   let videogamesTotal = await getAllInfo();
   if (name) {
@@ -89,20 +97,21 @@ router.get("/genres", async (req, res) => {
   });
 
   genEach.forEach((elm) => {
-    Genres.findOrCreate({
+    Genre.findOrCreate({
       where: {
         name: elm.name,
       },
     });
   });
-  const allGenres = await Genres.findAll();
+  const allGenres = await Genre.findAll();
   res.send(allGenres);
 });
 
 router.post("/videogame", async (req, res) => {
-  const { name, description, released, rating, platform, genres, image } =
+  const { name, description, released, rating, platform, genre, image } =
     req.body;
-  const videogameCreated = await Videogames.create({
+
+  let videogameCreated = await Videogame.create({
     name,
     description,
     released,
@@ -110,8 +119,8 @@ router.post("/videogame", async (req, res) => {
     platform,
     image,
   });
-  let genredb = await Genres.findAll({
-    where: { name: genres },
+  let genredb = await Genre.findAll({
+    where: { name: genre },
   });
 
   videogameCreated.addGenres(genredb);
@@ -123,40 +132,30 @@ router.get("/videogame/:id", async (req, res) => {
   const id = req.params.id;
   const videogamesTotal = await getAllInfo();
   let videogamesId;
-  if (id.length > 5) {
-    videogamesId = await Videogames.findAll({
-      include: {
-        model: Genres,
-        attributes: ["name"],
-        through: {
-          attributes: [],
-        },
-      },
-      where: {
-        id: id,
-      },
+
+  if (id.length > 20) {
+    videogamesId = await Videogame.findByPk(id, {
+      include: Genre,
     });
-    infoApi = videogamesId.map((elm) => {
-      let videogamesId = elm.dataValues;
-      console.log(videogamesId, "marthaaaa");
-      return {
-        id: videogamesId.id,
-        name: videogamesId.name,
-        description: videogamesId.description, //
-        released: videogamesId.released,
-        rating: videogamesId.rating,
-        platform: videogamesId.platform.map((elm) => elm),
-        Genres: videogamesId.Genres.map((e) => e.dataValues.name),
-        image: videogamesId.image,
-      };
-    });
-    console.log("display flex", infoApi);
+
+    let infoApi = {
+      id: videogamesId.id,
+      name: videogamesId.name,
+      description: videogamesId.description, //
+      released: videogamesId.released,
+      rating: videogamesId.rating,
+      platform: videogamesId.platform.map((elm) => elm),
+      genre: videogamesId.Genres.map((e) => e.dataValues.name),
+      image: videogamesId.image,
+    };
+
     res.send(infoApi);
   } else {
     let idDescr = await axios.get(
       `https://api.rawg.io/api/games/${id}?key=3b46b9239f7c420a95298d320f0d693f`
     );
     videogamesId = idDescr.data;
+
     let datita = (ev) => {
       return {
         id: ev.id,
@@ -164,8 +163,8 @@ router.get("/videogame/:id", async (req, res) => {
         description: ev.description_raw,
         released: ev.released,
         rating: ev.rating,
-        platform: ev.platforms.map((elm) => elm.platform.name).join(", "),
-        genres: ev.genres.map(({ name }) => name).join(", "),
+        platform: ev.platforms.map((elm) => elm.platform.name),
+        genre: ev.genres.map((e) => e.name),
         image: ev.background_image,
       };
     };
