@@ -16,14 +16,18 @@ export default function Paginado({
       <ul className={style.paginado}>
         {pageNumbers &&
           pageNumbers.map((number) => (
-            <li
-              className={`${style.number}  ${
-                currentPage === number && style.paginateActive
-              }`}
-            >
-              <a className={style.numeritos} onClick={() => paginado(number)}>
+            <li>
+              <button
+                className={style.numeritos}
+                style={
+                  currentPage === number
+                    ? { backgroundColor: "#fbff1aa9", color: "#000" }
+                    : null
+                }
+                onClick={() => paginado(number)}
+              >
                 {number}
-              </a>
+              </button>
             </li>
           ))}
       </ul>

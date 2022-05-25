@@ -42,16 +42,20 @@ export default function Detail(data) {
           <h3>{videogame?.name}</h3>
           <p>Released: {videogame?.released}</p>
           <div className={style.platform}>
-            Platform:
-            {videogame?.platform?.map((e) => (
-              <p className={style.platformItem}>{e}</p>
-            ))}
+            <p>Platform:</p>
+            <div className={style.contPlat}>
+              {videogame?.platform?.map((e) => (
+                <p className={style.platformItem}>{e}</p>
+              ))}
+            </div>
           </div>
-          <div>
-            Genre:{" "}
-            {videogame?.genre?.map((e) => (
-              <p>{e}</p>
-            ))}
+          <div className={style.genress}>
+            <p>Genre: </p>
+            <div className={style.contGen}>
+              {videogame?.genre?.map((e) => (
+                <p>{e}</p>
+              ))}
+            </div>
           </div>
           <p className={style.description}>
             Description: {videogame?.description}

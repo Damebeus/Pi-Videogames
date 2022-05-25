@@ -28,7 +28,7 @@ export function getGamesById(id) {
   return async function (dispatch) {
     try {
       var json = await axios.get(`http://localhost:3001/videogame/${id}`);
-      console.log(json, "si quiere frontear");
+
       return dispatch({
         type: "GET_GAMES_BYID",
         payload: json.data,

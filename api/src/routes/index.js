@@ -56,6 +56,7 @@ const getAllInfo = async () => {
       platform: elm.platforms,
       genre: elm.Genres.map((elm) => (elm = elm.name)),
       image: elm.image,
+      createdInDb: elm.createdInDb,
     };
   });
   const infototal = infoApi.concat(infoDb);
@@ -118,6 +119,7 @@ router.post("/videogame", async (req, res) => {
     rating,
     platform,
     image,
+    createdInDb: true,
   });
   let genredb = await Genre.findAll({
     where: { name: genre },

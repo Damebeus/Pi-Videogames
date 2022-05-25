@@ -60,9 +60,9 @@ left: 19vw;
 }
 .item:hover {
     cursor: pointer;
-    transform: rotate(0deg) scale(1);
-    transition: .5s all ease;
-    z-index: 400;
+    transform: rotate(40deg) scale(1);
+    transition: .7s all ease;
+    z-index: 300;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.16);
 }
 .item.card1:hover {

@@ -65,7 +65,7 @@ function rootReducer(state = initialState, action) {
       }
       if (action.payload === "new-games") {
         createGames = state.videogames.filter(
-          (elm) => elm.createdInDb === "true"
+          (elm) => elm.createdInDb === true
         );
       }
       if (action.payload === "old-games") {
@@ -87,7 +87,7 @@ function rootReducer(state = initialState, action) {
         videogamesByGenre = state.allGames;
       } else {
         videogamesByGenre = state.allGames.filter((elm) =>
-          elm.genres.includes(action.payload)
+          elm.genre.includes(action.payload)
         );
       }
       return {

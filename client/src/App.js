@@ -7,6 +7,7 @@ import VideogameCreate from "./components/VideogameCreate";
 import Detail from "./components/Detail";
 import Error404 from "./components/Error404";
 import Ankaramessi from "./components/Ankaramessi";
+/* import admin from "./components/admin"; */
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +19,7 @@ function App() {
           <Route path='/card' component={Card} />
           <Route exact path='/videogame/:id' component={Detail} />
           <Route exact path='/ankaramessi' component={Ankaramessi} />
+          {/* <Route exact path='/admin' component={admin} /> */}
           <Route path='*' component={Error404} />
         </Switch>
       </div>

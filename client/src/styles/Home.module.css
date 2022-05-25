@@ -24,14 +24,14 @@
   background-position: center;
 }
 .cardContainer{
-  display: grid;
- 
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     padding: 30px 10px 10px 300px;
     grid-gap: 30px 30px 30px;
     justify-content: center;
+    height: 100%;
     
-    
+ 
   }
   .titulo{
       text-decoration: none;

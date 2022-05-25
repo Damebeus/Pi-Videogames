@@ -19,7 +19,7 @@ export default function Card({ image, name, genre, id, rating }) {
         </div>
         <div className={style.genres}>
           {genre?.map((elm) => (
-            <h5>{elm}</h5>
+            <h5>{elm}ㅤ</h5>
           ))}
         </div>
       </Link>

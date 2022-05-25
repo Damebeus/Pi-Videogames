@@ -64,10 +64,20 @@ function validate(input) {
   let errors = {};
   if (!input.name) {
     errors.name = "El nombre es obligatorio";
+  } else if (input.description.length < 30 || input.description.length > 200) {
+    errors.description = "La descripción debe tener entre 30 y 200 caracteres";
   } else if (!input.description) {
     errors.description = "La descripción es obligatoria";
+  } else if (!input.image) {
+    errors.image = "La imagen es obligatoria";
+  } else if (
+    !/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(input.image)
+  ) {
+    errors.image = "La imagen debe ser una URL valida";
   } else if (!input.genre) {
     errors.genre = "El género es obligatorio";
+  } else if (!input.rating) {
+    errors.rating = "El rating es obligatorio";
   } else if (
     (Number(input.rating) > 5 || Number(input.rating) < 0) &&
     input.rating
@@ -75,10 +85,7 @@ function validate(input) {
     errors.rating = "El rating debe estar entre 0 y 5";
   } else if (!input.platform) {
     errors.platform = "La plataforma es obligatoria";
-  } else if (!input.image) {
-    errors.image = "La imagen es obligatoria";
   }
-
   return errors;
 }
 
@@ -140,8 +147,25 @@ export default function VideogameCreate() {
   }, [input]);
   function handleSubmit(ev) {
     ev.preventDefault();
-
-    if (Object.keys(errors).length === 0) {
+    if (
+      input.name.length === 0 ||
+      input.description.length === 0 ||
+      input.rating.length === 0 ||
+      input.image.length === 0 ||
+      input.platform.length === 0 ||
+      input.genre.length === 0
+    ) {
+      alert("Todos los campos son obligatorios");
+    } else if (
+      !/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(input.image)
+    ) {
+      alert("La imagen debe ser una url valida");
+    } else if (
+      input.description.length < 30 ||
+      input.description.length > 200
+    ) {
+      alert("La descripción debe tener al menos 30 caracteres");
+    } else if (Object.keys(errors).length === 0) {
       /* dispatch(postVideogame(input)); */
 
       axios.post("http://localhost:3001/videogame", input);
@@ -157,10 +181,9 @@ export default function VideogameCreate() {
         rating: "",
       });
       history.push("/home");
-    } else {
-      alert("Debes completar todos los campos");
     }
   }
+
   function handleDelete(elm) {
     if (platforms.find((p) => p.name === elm)) {
       setInput({
@@ -263,14 +286,6 @@ export default function VideogameCreate() {
                       ))}
                   </select>
                 </div>
-                <div>
-                  {input.genre &&
-                    input.genre.map((elm) => (
-                      <ul onClick={() => handleDelete(elm)} name={"genres"}>
-                        <li className={style.generitos}>{elm}</li>
-                      </ul>
-                    ))}
-                </div>
               </div>
               <div className={style.containerPlatforms}>
                 <div>
@@ -283,16 +298,6 @@ export default function VideogameCreate() {
                         </option>
                       ))}
                   </select>
-                </div>
-                <div>
-                  {input.platform &&
-                    input.platform.map((elm) => (
-                      <div onClick={() => handleDelete(elm)} name={"platform"}>
-                        <div>
-                          <p className={style.plataformitas}>{elm}</p>
-                        </div>
-                      </div>
-                    ))}
                 </div>
               </div>
               <div className={style.buttonContainer1}>
@@ -307,6 +312,26 @@ export default function VideogameCreate() {
                 </button>
               </div>
             </form>
+            <div className={style.contActive}>
+              <div className={style.activeGen}>
+                {input.genre &&
+                  input.genre.map((elm) => (
+                    <ul onClick={() => handleDelete(elm)} name={"genres"}>
+                      <li className={style.generitos}>{elm}</li>
+                    </ul>
+                  ))}
+              </div>
+              <div className={style.activePlat}>
+                {input.platform &&
+                  input.platform.map((elm) => (
+                    <ul onClick={() => handleDelete(elm)} name={"platform"}>
+                      <div>
+                        <li className={style.plataformitas}>{elm}</li>
+                      </div>
+                    </ul>
+                  ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
